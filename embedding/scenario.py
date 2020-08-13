@@ -1,5 +1,5 @@
 """
-Implement the three algorithms, DPE, HEFT, and FixDoc.
+Generate the edge computing scenario and set functions.
 
     Author: Hailiang Zhao (hliangzhao@zju.edu.cn)
 """
