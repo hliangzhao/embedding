@@ -1,10 +1,25 @@
 # Dependent Function Embedding
 ``embedding`` is a python package for solving the dependent function embedding problems. 
+
 This is the repos for our paper accepted by IEEE INFOCOM 2021 **Placement is not Enough: 
 Embedding with Proactive Stream Mapping on the Heterogenous Edge** (add a link). If you are using this 
 code, please cite this paper. Currently, you can cite the arXiv version:
 ```
-empty now.
+@INPROCEEDINGS{Zhao2105:Placement,
+AUTHOR="Hailiang Zhao and Shuiguang Deng and Zijie Liu and Zhengzhe Xiang and
+Jianwei Yin",
+TITLE="Placement is not Enough: Embedding with Proactive Stream Mapping on the
+Heterogenous Edge",
+BOOKTITLE="IEEE INFOCOM 2021 - IEEE Conference on Computer Communications (INFOCOM
+2021)",
+ADDRESS="Vancouver, Canada",
+DAYS=10,
+MONTH=may,
+YEAR=2021,
+KEYWORDS="edge computing; dependent function embedding; directed acyclic graph;
+function placement"
+}
+
 ```
 
 Dependent function embedding is the combination of **function placement** and **stream mapping** 
@@ -13,13 +28,15 @@ on the heterogenous edge. Function placement studies how the dependent functions
 studies how the data stream transferred between each function pair are mapped to different 
 links between edge servers.
 
-``embedding`` implements a state-of-the-art algorithm DPE (Dynamic Programming-based Embedding) 
+``embedding`` implements the algorithm DPE (Dynamic Programming-based Embedding) proposed in this paper
 and two contrastive algorithms, FixDoc (https://dl.acm.org/doi/10.1145/3326285.3329055) and 
 HEFT (https://ieeexplore.ieee.org/document/993206).
 
 ## Installation
+You can run this code directly by downloading this repos into your desktop. 
+
 To install ``embedding`` by source code, download this repository and sequentially run following 
-commands in your terminal/command line and run:
+commands in your terminal/command line:
 ```commandline
 python setup.py build
 python setup.py install --record files.txt
@@ -40,15 +57,16 @@ You can permanently uninstall this package by further deleting the directory
 ## A simple example
 Our implementation is based on the Alibaba cluster trace dataset (https://github.com/alibaba/clusterdata), 
 Please use the v2018 and download the file *batch_task* through 
-http://clusterdata2018pubcn.oss-cn-beijing.aliyuncs.com/batch_task.tar.gz. In my file path 
-settings, you may put the uncompressed file into the directory ``embedding/dataset/``.
+http://clusterdata2018pubcn.oss-cn-beijing.aliyuncs.com/batch_task.tar.gz. **The package does not include 
+ this file because it's too large.** In default file path settings, you may put the 
+ uncompressed file into the directory ``embedding/dataset/``.
 
 The example consists of three steps. Firstly, sampling DAGs from the batch_task.csv file and 
 get the topological order for each DAG. 
 ```python
 from embedding.dataset_processing import sample_DAG, get_topological_order
 
-sample_DAG()
+sample_DAG(batch_task-file-path)
 get_topological_order()
 ```
 Secondly, generate the edge computing scenario, i.e., a connected graph of edge servers,
