@@ -30,7 +30,7 @@ studies how the data stream transferred between each function pair are mapped to
 links between edge servers.
 
 <div align=center>
-    <img src="./img/problem.png" width="400"/>
+    <img src="./img/problem.png" width="700"/>
 </div>
 
 
