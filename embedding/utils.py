@@ -4,7 +4,6 @@ Utilities.
     Author: Hailiang Zhao (hliangzhao@zju.edu.cn)
 """
 import sys
-import itertools as it
 
 
 class ProgressBar:
@@ -25,20 +24,13 @@ class ProgressBar:
 
 
 def reverse_dict(d):
-    """
-    Reverse a dictionary. (for HEFT algorithm)
+    """ Reverses direction of dependence dict
+    e.g.:
+    d = {'a': (1, 2), 'b': (2, 3), 'c':()}
+    reverse_dict(d) = {1: ('a',), 2: ('a', 'b'), 3: ('b',)}
     """
     result = {}
     for key in d:
         for val in d[key]:
-            result[val] = result.get(val, tuple()) + (key,)
+            result[val] = result.get(val, tuple()) + (key, )
     return result
-
-
-def find_func_event(func_num, orders_dict):
-    """
-    Find a function's event (where deployed, start time and end time). (for HEFT algorithm)
-    """
-    for event in it.chain.from_iterable(orders_dict.values()):
-        if event.func == func_num:
-            return event

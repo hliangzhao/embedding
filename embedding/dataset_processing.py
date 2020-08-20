@@ -7,7 +7,7 @@ batch_task.csv.
     topological_order.csv.
 - At last, we 'rank' the functions of each DAG (used for HEFT) and save the results to rank.scv.
 
-(task --> function, job --> DAG)
+(task --> function, func_num --> DAG)
 
     Author: Hailiang Zhao (hliangzhao@zju.edu.cn)
 """

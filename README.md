@@ -1,7 +1,7 @@
 # Dependent Function Embedding
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/hliangzhao/Dependent-Function-Embedding/blob/master/LICENSE.txt)
 
-``embedding`` is a python package for solving the dependent function embedding problems. 
+``embedding`` is a python3 package for solving the dependent function embedding problems. 
 
 This is the repos for our paper accepted by IEEE INFOCOM 2021 **Placement is not Enough: 
 Embedding with Proactive Stream Mapping on the Heterogenous Edge** (add a link). If you are using this 
@@ -57,7 +57,7 @@ For windows powershell:
 Get-Content files.txt | ForEach-Object {Remove-Item $_ -Recurse -Force}
 ```
 You can permanently uninstall this package by **further** deleting the directory 
-``../lib/python3.7/site-packages/embedding-0.1.egg/``.
+``../lib/python3.x/site-packages/embedding-0.1.egg/``.
 
 
 ## A simple example
@@ -92,16 +92,38 @@ DAG's scheduling results.
 ```python
 from embedding.algos.dpe import DPE
 from embedding.algos.fixdoc import FixDoc
+from embedding.algos.heft import HEFT
 from embedding.algos.interpretate_result import *
 from embedding.parameters import *
 
 dpe = DPE(G, bw, pp, simple_paths, reciprocals_list, proportions_list, pp_required, data_stream)
-T_optimal_all_dpe, DAGs_deploy_dpe, process_sequence_all_dpe = dpe.get_response_time(sorted-DAG-path)
+T_optimal_all_dpe, DAGs_deploy_dpe, process_sequence_all_dpe = dpe.get_response_time(sorted_DAG_path=SORTED_DAG_PATH)
 print_scheduling_results(T_optimal_all_dpe, DAGs_deploy_dpe, process_sequence_all_dpe, 2010)
 
 fixdoc = FixDoc(G, bw, pp, simple_paths, reciprocals_list, proportions_list, pp_required, data_stream)
-T_optimal_all_fixdoc, DAGs_deploy_fixdoc, process_sequence_all_fixdoc = fixdoc.get_response_time(sorted-DAG-path)
+T_optimal_all_fixdoc, DAGs_deploy_fixdoc, process_sequence_all_fixdoc = fixdoc.get_response_time(sorted_DAG_path=SORTED_DAG_PATH)
 print_scheduling_results(T_optimal_all_fixdoc, DAGs_deploy_fixdoc, process_sequence_all_fixdoc, 2010)
+
+fixdoc = HEFT(G, bw, pp, simple_paths, reciprocals_list, proportions_list, pp_required, data_stream)
+DAGs_orders, DAGs_deploy = fixdoc.get_response_time(sorted_DAG_path=SORTED_DAG_PATH)
+pprint.pprint(DAGs_orders[2010])
+```
+Below gives a typical output:
+```
+Getting makespan for 2119 DAGs by DPE algorithm...
+100% [##################################################]
+The overall makespan achieved by DPE: 1669.287308 second
+The average makespan: 0.787771 second
+
+Getting makespan for 2119 DAGs by FixDoc algorithm...
+100% [##################################################]
+The overall makespan achieved by FixDoc: 2327.992703 second
+The average makespan: 1.098628 second
+
+Getting makespan for 2119 DAGs by HEFT algorithm...
+100% [##################################################]
+The overall makespan achieved by HEFT: 2059.056025 second
+The average makespan: 0.971711 second
 ```
 
 You can directly run ``example/example.py`` to obtain the results. Our experiments show that 

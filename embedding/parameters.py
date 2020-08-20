@@ -25,7 +25,7 @@ class Parameter:
         self.__server_num = 4
         self.__n_pairs = self.__server_num * (self.__server_num - 1)
         # density is used to adjust the connectivity of the graph
-        self.__density = 12
+        self.__density = 8
         # bandwidth generation scope
         self.__bw_lower, self.__bw_upper = 30, 70
         # processing power scope
@@ -37,6 +37,7 @@ class Parameter:
         self.__max_func_num = MAX_FUNC_NUM
 
     def set_server_num(self, server_num):
+        assert server_num > 1
         self.__server_num = server_num
 
     def get_server_num(self):

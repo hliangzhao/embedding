@@ -40,7 +40,6 @@ class FixDoc:
             return
 
         df = pd.read_csv(sorted_DAG_path)
-        # df = pd.read_csv('test.csv')
         df_len = df.shape[0]
         idx = 0
 
@@ -155,8 +154,7 @@ class FixDoc:
                                                 if name_str_list_inner[h_inner + 1] == '':
                                                     continue
                                                 dependent_func_num_predecessor = int(name_str_list_inner[h_inner + 1])
-                                                where_deployed_predecessor = int(
-                                                    funcs_deploy[dependent_func_num_predecessor - 1])
+                                                where_deployed_predecessor = int(funcs_deploy[dependent_func_num_predecessor - 1])
                                                 if where_deployed_predecessor == -1.:
                                                     print('Sth. wrong! It\'s impossible!')
                                                 if k == where_deployed_predecessor:
