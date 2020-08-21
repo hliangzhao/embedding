@@ -3,8 +3,6 @@ Implement the DPE algorithm.
 
     Author: Hailiang Zhao (hliangzhao@zju.edu.cn)
 """
-
-
 import numpy as np
 import pandas as pd
 from embedding.parameters import *
@@ -34,6 +32,7 @@ class DPE:
         makespan_of_all_DAGs = 0
         DAGs_deploy = []
         T_optimal_all = []
+        start_time_all = []
         process_sequence_all = []
 
         required_num = REQUIRED_NUM
@@ -52,6 +51,7 @@ class DPE:
 
             # T_optimal stores the earliest finish time of each function on each server
             T_optimal = np.zeros((DAG_len, para.get_server_num()))
+            start_time = np.zeros(DAG_len)
             funcs_deploy = -1 * np.ones(DAG_len)
             process_sequence = []
             # server_runtime records the moment when the newest func on each server is finished
@@ -174,6 +174,8 @@ class DPE:
                             funcs_deploy[dependent_func_num - 1] = selected_server
                             process_sequence.append(dependent_func_num)
                             server_runtime[selected_server] = T_optimal[dependent_func_num - 1][selected_server]
+                            start_time[dependent_func_num - 1] = server_runtime[selected_server] - DAG_pp_required[
+                                dependent_func_num - 1] / self.pp[selected_server]
                             all_min_phi.append(min_phi)
 
                         # now, all the predecessors of func has been deployed, use their T_optimal to update T_optimal of func
@@ -183,6 +185,7 @@ class DPE:
             DAGs_deploy.append(funcs_deploy)
             process_sequence_all.append(process_sequence)
             T_optimal_all.append(T_optimal)
+            start_time_all.append(start_time)
 
             calculated_num += 1
             percent = calculated_num / float(all_DAG_num) * 100
@@ -193,4 +196,4 @@ class DPE:
             idx += DAG_len
         print('The overall makespan achieved by DPE: %f second' % makespan_of_all_DAGs)
         print('The average makespan: %f second' % (makespan_of_all_DAGs / sum(REQUIRED_NUM)))
-        return T_optimal_all, DAGs_deploy, process_sequence_all
+        return T_optimal_all, DAGs_deploy, process_sequence_all, start_time_all

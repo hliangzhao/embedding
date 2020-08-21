@@ -257,7 +257,7 @@ class HEFT:
             return w(ni)
 
     @staticmethod
-    def endtime(job, events):
+    def end_time(job, events):
         """
         Endtime of job in list of events.
         """
@@ -295,8 +295,8 @@ class HEFT:
         duration = compcost(job, agent, comp_cost_array)
 
         if job in prec:
-            comm_ready = max([HEFT.endtime(p, orders[jobson[p]])
-                              + commcost(p, job, agent, jobson[p], comm_cost_array) for p in prec[job]])
+            comm_ready = max([HEFT.end_time(p, orders[jobson[p]]) + commcost(p, job, agent, jobson[p], comm_cost_array)
+                              for p in prec[job]])
         else:
             comm_ready = 0
 
@@ -353,6 +353,9 @@ class HEFT:
         jobson = dict()
         for job in reversed(jobs):
             HEFT.allocate(job, orders, jobson, prec, commcost, comm_cost_array, compcost, comp_cost_array)
+
+        for n in range(para.get_server_num()):
+            orders['server ' + str(n + 1)] = orders.pop(str(n))
 
         return orders, jobson, HEFT.makespan(orders)
 
@@ -417,7 +420,7 @@ class HEFT:
         return order
 
     @staticmethod
-    def insert_sendrecvs(orders, jobson, succ, send, recv):
+    def insert_send_recvs(orders, jobson, succ, send, recv):
         """
         Insert send an recv events into the orders at appropriate places.
         """
