@@ -12,7 +12,6 @@ DATASET_PATH = os.path.join(DIR_PATH, 'dataset/batch_task.csv')
 SELECTED_DAG_PATH = os.path.join(DIR_PATH, 'dataset/selected_DAGs.csv')
 SORTED_DAG_PATH = os.path.join(DIR_PATH, 'dataset/topological_order.csv')
 TEST_DAG_PATH = os.path.join(DIR_PATH, 'dataset/test.csv')
-PRIORITIZED_DAG_PATH = os.path.join(DIR_PATH, 'dataset/priority.csv')
 
 MAX_VALUE = 9e+4
 REQUIRED_NUM = [200, 800, 600, 400, 119]
