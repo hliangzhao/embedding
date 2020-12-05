@@ -1,27 +1,7 @@
 # Dependent Function Embedding
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/hliangzhao/Dependent-Function-Embedding/blob/master/LICENSE.txt)
 
-``embedding`` is a python3 package for solving the dependent function embedding problems. 
-
-This is the repos for our paper accepted by IEEE INFOCOM 2021 **Placement is not Enough: 
-Embedding with Proactive Stream Mapping on the Heterogenous Edge** (add a link). If you are using this 
-code, please cite this paper. The BibTeX is as follows.
-```
-@INPROCEEDINGS{Zhao2105:Placement,
-AUTHOR="Hailiang Zhao and Shuiguang Deng and Zijie Liu and Zhengzhe Xiang and
-Jianwei Yin",
-TITLE="Placement is not Enough: Embedding with Proactive Stream Mapping on the
-Heterogenous Edge",
-BOOKTITLE="IEEE INFOCOM 2021 - IEEE Conference on Computer Communications (INFOCOM
-2021)",
-ADDRESS="Vancouver, Canada",
-DAYS=10,
-MONTH=may,
-YEAR=2021,
-KEYWORDS="edge computing; dependent function embedding; directed acyclic graph;
-function placement"
-}
-```
+``embedding`` is a python3 package for solving the dependent function embedding problems.
 
 Dependent function embedding is the combination of **function placement** and **stream mapping** 
 on the heterogenous edge. Function placement studies how the dependent functions in an app 
@@ -97,18 +77,19 @@ from embedding.algos.interpretate_result import *
 from embedding.parameters import *
 
 dpe = DPE(G, bw, pp, simple_paths, reciprocals_list, proportions_list, pp_required, data_stream)
-T_optimal_all_dpe, DAGs_deploy_dpe, process_sequence_all_dpe = dpe.get_response_time(sorted_DAG_path=SORTED_DAG_PATH)
-print_scheduling_results(T_optimal_all_dpe, DAGs_deploy_dpe, process_sequence_all_dpe, 2010)
+T_optimal_all_dpe, DAGs_deploy_dpe, process_sequence_all_dpe, start_time_all_dpe = dpe.get_response_time(sorted_DAG_path=SORTED_DAG_PATH)
+print_scheduling_results(T_optimal_all_dpe, DAGs_deploy_dpe, process_sequence_all_dpe, start_time_all_dpe, 2010)
 
 fixdoc = FixDoc(G, bw, pp, simple_paths, reciprocals_list, proportions_list, pp_required, data_stream)
-T_optimal_all_fixdoc, DAGs_deploy_fixdoc, process_sequence_all_fixdoc = fixdoc.get_response_time(sorted_DAG_path=SORTED_DAG_PATH)
-print_scheduling_results(T_optimal_all_fixdoc, DAGs_deploy_fixdoc, process_sequence_all_fixdoc, 2010)
+T_optimal_all_fixdoc, DAGs_deploy_fixdoc, process_sequence_all_fixdoc, start_time_all_fixdoc = fixdoc.get_response_time(sorted_DAG_path=SORTED_DAG_PATH)
+print_scheduling_results(T_optimal_all_fixdoc, DAGs_deploy_fixdoc, process_sequence_all_fixdoc, start_time_all_fixdoc, 2010)
 
-fixdoc = HEFT(G, bw, pp, simple_paths, reciprocals_list, proportions_list, pp_required, data_stream)
-DAGs_orders, DAGs_deploy = fixdoc.get_response_time(sorted_DAG_path=SORTED_DAG_PATH)
+heft = HEFT(G, bw, pp, simple_paths, reciprocals_list, proportions_list, pp_required, data_stream)
+DAGs_orders, DAGs_deploy = heft.get_response_time(sorted_DAG_path=SORTED_DAG_PATH)
+print('\nThe finish time of each function on the chosen server for DAG #%d:' % 2010)
 pprint.pprint(DAGs_orders[2010])
 ```
-Below gives a typical output:
+Below gives a typical output of makespan:
 ```
 Getting makespan for 2119 DAGs by DPE algorithm...
 100% [##################################################]
@@ -133,9 +114,7 @@ DPE outperforms these algorithms significantly.
 </div>
 
 
-## Final Notes
-For more details of our model and algorithm, please read our paper directly. You 
-can find it on http://hliangzhao.me/papers/embedding.pdf.
+The corresponding paper will appear in arXiv a few days later.
 
 About the author: 
 [Hailiang Zhao @ ZJU.CS.CCNT](http://hliangzhao.me)

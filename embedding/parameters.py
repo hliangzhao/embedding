@@ -24,7 +24,7 @@ class Parameter:
         self.__server_num = 4
         self.__n_pairs = self.__server_num * (self.__server_num - 1)
         # density is used to adjust the connectivity of the graph
-        self.__density = 8
+        self.__density = 10
         # bandwidth generation scope
         self.__bw_lower, self.__bw_upper = 30, 70
         # processing power scope
