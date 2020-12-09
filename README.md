@@ -114,7 +114,7 @@ DPE outperforms these algorithms significantly.
 </div>
 
 
-The corresponding paper will appear in arXiv a few days later.
+The corresponding paper can be found at https://arxiv.org/abs/2012.04158. I will update the paper and the code in the following days.
 
 About the author: 
 [Hailiang Zhao @ ZJU.CS.CCNT](http://hliangzhao.me)
