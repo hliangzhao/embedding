@@ -56,7 +56,7 @@ class HEFT:
         required_num = REQUIRED_NUM
         all_DAG_num = sum(required_num)
         calculated_num = 0
-        print('\nGetting makespan for %d DAGs by HEFT algorithm...' % all_DAG_num)
+        print('\nGetting makespan for %d DAGs by HEFT algorithm ...' % all_DAG_num)
         while idx < df_len:
             # get a DAG
             DAG_name = df.loc[idx, 'job_name']
@@ -110,9 +110,8 @@ class HEFT:
     @staticmethod
     def parse_DAG_structure(DAG, idx, DAG_len):
         """
-        Get a DAG structure from the dataset. For example:
-        for DAG "
-        M1,12846.0,j_3,1,Terminated,157213,157295,100.0,0.3
+        Get a DAG structure from the dataset. For example: for DAG
+        "M1,12846.0,j_3,1,Terminated,157213,157295,100.0,0.3
         R2_1,371.0,j_3,1,Terminated,157297,157322,100.0,0.49
         R3,371.0,j_3,1,Terminated,157297,157325,100.0,0.49
         M4,1.0,j_3,1,Terminated,157322,157328,100.0,0.39
@@ -125,8 +124,7 @@ class HEFT:
         R11_5_10,1.0,j_3,1,Terminated,157376,157381,100.0,0.39
         R12_4_11,1.0,j_3,1,Terminated,157376,157381,100.0,0.39
         R13_2_3_12,1.0,j_3,1,Terminated,157376,157381,100.0,0.39
-        R14_13,1.0,j_3,1,Terminated,157376,157381,100.0,0.39
-        ", the output is
+        R14_13,1.0,j_3,1,Terminated,157376,157381,100.0,0.39", the output is
         {1: (2,),
          2: (13,),
          3: (13,),
@@ -244,7 +242,7 @@ class HEFT:
         """
         Rank of job.
         This code is designed to mirror the wikipedia entry.
-        Please see http://en.wikipedia.org/wiki/Heterogeneous_Earliest_Finish_Time for details.
+        Please see https://en.wikipedia.org/wiki/Heterogeneous_Earliest_Finish_Time for details.
         """
         rank = partial(HEFT.ranku, compcost=compcost, commcost=commcost,
                        succ=succ, agents=agents, comp_cost_array=comp_cost_array, comm_cost_array=comm_cost_array)

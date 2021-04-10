@@ -1,18 +1,6 @@
 # Dependent Function Embedding
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/hliangzhao/Dependent-Function-Embedding/blob/master/LICENSE.txt)
 
 ``embedding`` is a python3 package for solving the dependent function embedding problems.
-
-Dependent function embedding is the combination of **function placement** and **stream mapping** 
-on the heterogenous edge. Function placement studies how the dependent functions in an app 
-(abstracted as a DAG) are placed on edge servers to minimize the makespan. Stream mapping 
-studies how the data stream transferred between each function pair are mapped to different 
-links between edge servers.
-
-<div align=center>
-    <img src="./img/problem.png" width="700"/>
-</div>
-
 
 ``embedding`` implements the algorithm DPE (Dynamic Programming-based Embedding) proposed in this paper
 and two contrastive algorithms, FixDoc (https://dl.acm.org/doi/10.1145/3326285.3329055) and 
@@ -107,14 +95,8 @@ The overall makespan achieved by HEFT: 2059.056025 second
 The average makespan: 0.971711 second
 ```
 
-You can directly run ``example/example.py`` to obtain the results. Our experiments show that 
-DPE outperforms these algorithms significantly.
-<div align=center>
-    <img src="./img/comparison.png" width="400"/>
-</div>
+You can directly run ``example/example.py`` to obtain the results.
 
-
-The corresponding paper can be found at https://arxiv.org/abs/2012.04158. I will update the paper and the code in the following days.
 
 About the author: 
 [Hailiang Zhao @ ZJU.CS.CCNT](http://hliangzhao.me)

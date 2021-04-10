@@ -50,7 +50,7 @@ class FixDoc:
         required_num = REQUIRED_NUM
         all_DAG_num = sum(required_num)
         calculated_num = 0
-        print('\nGetting makespan for %d DAGs by FixDoc algorithm...' % all_DAG_num)
+        print('\nGetting makespan for %d DAGs by FixDoc algorithm ...' % all_DAG_num)
         while idx < df_len:
             # get a DAG
             DAG_name = df.loc[idx, 'job_name']

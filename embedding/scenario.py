@@ -1,5 +1,5 @@
 """
-Generate the edge computing scenario and set functions.
+Generate the edge computing scenario and set functions. We simply set \sigma_{ij} as zero.
 
     Author: Hailiang Zhao (hliangzhao@zju.edu.cn)
 """

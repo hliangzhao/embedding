@@ -2,6 +2,7 @@
 This script processes the Alibaba cluster trace dataset (v2018). v2018 has 6 CSV files. We only use the file
 batch_task.csv.
 
+
 - Firstly, we sample 2119 DAGs from the dataset and save them into selected_DAGs.csv.
 - Then, we sort the functions of each DAG in topological order (used for DPE and FixDoc) and save the results to
     topological_order.csv.

@@ -93,14 +93,14 @@ class Parameter:
     def get_data_stream_size_lower(self):
         return self.__data_stream_size_lower
 
-    def set_data_stream_size_upper(self, data_stream_size_upper):
-        self.__data_stream_size_upper = data_stream_size_upper
-
-    def get_data_stream_size_upper(self):
-        return self.__data_stream_size_upper
-
     def set_max_func_num(self, max_func_num):
         self.__max_func_num = max_func_num
 
     def get_max_func_num(self):
         return self.__max_func_num
+
+    def set_data_stream_size_upper(self, data_stream_size_upper):
+        self.__data_stream_size_upper = data_stream_size_upper
+
+    def get_data_stream_size_upper(self):
+        return self.__data_stream_size_upper

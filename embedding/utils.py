@@ -24,7 +24,7 @@ class ProgressBar:
 
 
 def reverse_dict(d):
-    """ Reverses direction of dependence dict
+    """ Reverses direction of dependence dict.
     e.g.:
     d = {'a': (1, 2), 'b': (2, 3), 'c':()}
     reverse_dict(d) = {1: ('a',), 2: ('a', 'b'), 3: ('b',)}
