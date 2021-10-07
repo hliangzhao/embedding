@@ -2,7 +2,6 @@
 Step 1: Get the topological order of DAGs.
 Step 2: Generate the scenario.
 Step 3: Run the three algorithms and compare the results.
-
     Author: Hailiang Zhao (hliangzhao@zju.edu.cn)
 """
 from embedding.dataset_processing import sample_DAG, get_topological_order

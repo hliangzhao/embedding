@@ -1,6 +1,5 @@
 """
 This script defines all the parameters used.
-
     Author: Hailiang Zhao (hliangzhao@zju.edu.cn)
 """
 import os

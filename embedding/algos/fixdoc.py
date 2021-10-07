@@ -1,6 +1,5 @@
 """
 Implement the FixDoc algorithm.
-
     Author: Hailiang Zhao (hliangzhao@zju.edu.cn)
 """
 import numpy as np

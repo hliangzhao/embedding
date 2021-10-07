@@ -1,6 +1,5 @@
 """
 Print the scheduling result for the appointed DAG.
-
     Author: Hailiang Zhao (hliangzhao@zju.edu.cn)
 """
 import pprint

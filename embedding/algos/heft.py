@@ -3,7 +3,6 @@ Implement the HEFT algorithm.
 This script refers the code from https://github.com/mrocklin/heft/.
 
 (function ---> job, edge server ---> agent)
-
     Author: Hailiang Zhao (hliangzhao@zju.edu.cn)
 """
 import pandas as pd
