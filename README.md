@@ -95,7 +95,7 @@ The overall makespan achieved by HEFT: 2059.056025 second
 The average makespan: 0.971711 second
 ```
 
-You can directly run ``example/example.py`` to obtain the results.
+You can directly run ``example.py`` to obtain the results.
 
 
 About the author: 
