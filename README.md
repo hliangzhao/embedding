@@ -2,7 +2,7 @@
 
 ``embedding`` is a python3 package for solving the dependent function embedding problems.
 
-``embedding`` implements the algorithm DPE (Dynamic Programming-based Embedding) proposed in this paper
+``embedding`` implements the algorithm DPE (Dynamic Programming-based Embedding) proposed in this paper: https://ieeexplore.ieee.org/abstract/document/9665233/, 
 and two contrastive algorithms, FixDoc (https://dl.acm.org/doi/10.1145/3326285.3329055) and 
 HEFT (https://ieeexplore.ieee.org/document/993206).
 
